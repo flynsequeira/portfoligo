@@ -1,10 +1,11 @@
 import React from 'react';
+import './About.css';
 
 function About() {
   return (
-    <div>
-      <h1>Welcome to the Code Vertigo</h1>
-      <p>Learn about me!</p>
+    <div className="about-container">
+      <h1 className="about-title">Welcome to Code Vertigo</h1>
+      <p className="about-description">Learn about me!</p>
     </div>
   );
 }
