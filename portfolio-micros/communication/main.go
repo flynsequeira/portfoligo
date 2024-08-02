@@ -17,7 +17,7 @@ type Message struct {
 
 func handleMessage(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodOptions {
-		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3001")
+		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 		w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		w.WriteHeader(http.StatusOK)
@@ -32,13 +32,13 @@ func handleMessage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Printf("Received message from %s (%s): %s\n", msg.Name, msg.Email, msg.Message)
-	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3001")
+	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 	w.WriteHeader(http.StatusOK)
 }
 
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/message", handleMessage).Methods("POST", "OPTIONS")
-	fmt.Println("Server started at :3000")
-	log.Fatal(http.ListenAndServe(":3000", router))
+	fmt.Println("Server started at :3001")
+	log.Fatal(http.ListenAndServe(":3001", router))
 }

@@ -3,9 +3,7 @@ import React from 'react';
 import './About.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPython, faAws, faJava, faNode, faJsSquare, faAngular, faDocker } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons';
-import dbIcon from '../assets/db.png';
-import bigDataIcon from '../assets/bigData.png';
+import data from '../assets/data.png';
 
 function About() {
   return (
@@ -31,8 +29,7 @@ function About() {
           <div className="skills-tile">
             <h4 className="skills-title">Data</h4>
             <div className="skills-icons">
-              <img src={dbIcon} alt="DB" title="DB" className="custom-icon" />
-              <img src={bigDataIcon} alt="Big Data" title="Big Data" className="custom-icon" />
+              <img src={data} alt="Data" title="Data" className="custom-icon" />
             </div>
           </div>
         </div>
