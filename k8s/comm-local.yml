@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comm-service-t1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comm-service-t1
+  template:
+    metadata:
+      labels:
+        app: comm-service-t1
+    spec:
+      containers:
+      - name: comm-service-t1
+        image: portfoligo-comm-service:latest
+        imagePullPolicy: Never  # Ensure local image is used
+        ports:
+        - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comm-service-t1
+spec:
+  selector:
+    app: comm-service-t1
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 3001
+  type: LoadBalancer

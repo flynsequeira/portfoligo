@@ -13,7 +13,7 @@ function Contact() {
     setError('');
     setSuccess('');
     try {
-      const response = await fetch('http://localhost:3000/message', {
+      const response = await fetch('http://localhost:3001/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

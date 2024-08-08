@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comm-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comm-service
+  template:
+    metadata:
+      labels:
+        app: comm-service
+    spec:
+      containers:
+      - name: comm-service
+        image: <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/portfolio-comm-service:latest
+        ports:
+        - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comm-service
+spec:
+  selector:
+    app: comm-service
+  ports:
+  - protocol: TCP
+    port: 3001
+    targetPort: 3001
+  type: LoadBalancer

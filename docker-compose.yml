@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  go-service:
+  comm-service:
     build:
-      context: ./portfolio-micros/communication
+      context: ./portfolio-services/communication
     ports:
       - "3001:3001"
 
